@@ -1,0 +1,157 @@
+/* Hide the fallback message if it's working */
+.impress-supported .fallback-message {
+  display: none;
+}
+
+/* Basic step styles, lovingly adapted from the impress.js demo */
+.step {
+  position: relative;
+  background: white;
+  border-radius: 10px;
+  min-height: 400px;
+  width: 900px;
+  padding: 40px;
+  margin: 20px auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 48px;
+  line-height: 1.5;
+}
+
+.impress-enabled .step {
+  margin: 0;
+  opacity: 0.3;
+  -webkit-transition: opacity 1s;
+  -moz-transition: opacity 1s;
+  -ms-transition: opacity 1s;
+  -o-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
+.impress-enabled .step.active {
+  opacity: 1
+}
+
+/* Shared styles */
+img.max-width {
+  width: 100%;
+  margin: auto;
+}
+
+p {
+  font-size: 0.6em;
+}
+
+.small {
+  font-size: 0.6em;
+}
+
+ul {
+  font-size: 0.6em;
+}
+
+#footer {
+  position: absolute;
+  margin: 20px;
+  bottom: 0;
+  left: 0;
+  font-size: 2em;
+  opacity: 0.5;
+}
+
+#footer span {
+  margin-right: 80px;
+}
+
+#footer img {
+  height: 1.5em;
+}
+
+.code {
+  font-size: 0.5em;
+  color: white;
+  font-family: monospace;
+  background: #333;
+  padding: 40px;
+  border-radius: 10px;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+
+body {
+  background: url("../img/title.png") no-repeat center center fixed;
+  background-size: cover;
+  transition: all 1s;
+}
+
+/* Per-step styles */
+#title {
+  min-height: 400px;
+}
+
+#title.step {
+  background: none;
+}
+
+#title .title {
+  background: hsla(200, 10%, 20%, 0.8);
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#title .logo img {
+  height: 1.5em;
+  margin: 40px auto;
+  display: block
+}
+
+#title .title h1 {
+  font-variant: small-caps
+}
+
+#title .title h1,
+#title .title p {
+  color: white;
+  text-align: center;
+}
+
+.highlight {
+  transition: all 1s;
+  -ms-transition: all 1s;
+  -moz-transition: all 1s;
+  -webkit-transition: all 1s;
+  transition: all 1s;
+}
+
+#problem.step.present .highlight {
+  font-size: 2em;
+  color: orangered;
+  transition-delay: 10s;
+  -ms-transition-delay: 10s;
+  -moz-transition-delay: 10s;
+  -webkit-transition-delay: 10s;
+  transition-delay: 10s;
+}
+
+#solution.step.present .highlight {
+  font-size: 2em;
+  color: orangered;
+  transition-delay: 1s;
+  -ms-transition-delay: 1s;
+  -moz-transition-delay: 1s;
+  -webkit-transition-delay: 1s;
+  transition-delay: 1s;
+}
+
+#expressions.step.present .highlight {
+  color: orangered;
+  transition-delay: 1s;
+  -ms-transition-delay: 1s;
+  -moz-transition-delay: 1s;
+  -webkit-transition-delay: 1s;
+  transition-delay: 1s;
+}
