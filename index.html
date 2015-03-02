@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  <meta name="viewport" content="width=1024" />
+
+  <title>Learning AngularJS Magic: Expressions</title>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/foundation.css" />
+  <link rel="stylesheet" href="css/angularjs-nyc-impress.css" />
+  <body class="impress-not-supported">
+    <div class="fallback-message">
+      <h1>Whoops.</h1>
+      <p>
+        Your browser doesn't support the features needed for this presentation. You should
+        definitely upgrade to something a little more...
+        <a href="https://www.google.com/chrome/browser/">modern</a>.
+      </p>
+    </div>
+    <div id="impress">
+      <div id="title" class="step" data-x="-4000" data-y="4000" data-z="8000">
+        <div class="title">
+          <h1>Learning AngularJS Magic: Expressions</h1>
+          <p>by Neville Samuell (@nsamuell)</p>
+          <span class="logo">
+            <img src="img/logo_white.png"></img>
+          </span>
+          <p>
+          See the full post for details:
+          <a href="http://www.pathgather.com/blog/2014/12/7/learning-angularjs-magic-expressions">
+            www.pathgather.com/blog/2014/12/7/learning-angularjs-magic-expressions
+          </a>
+          </p>
+        </div>
+      </div>
+      <div id="intro" class="step" data-x="0" data-y="800">
+        <iframe frameborder="0" width="100%" height="450px" src="http://embed.plnkr.co/SjdbeqW3a9KP5xUvy3JH/preview"></iframe>
+      </div>
+      <div id="problem" class="step" data-x="0" data-y="1600">
+        <p>The problem...</p>
+        <p class="code">
+        &lt;span class="big"&gt;{{ points }}&lt;/span&gt;</br>
+        &lt;span&gt;points&lt;/span&gt;</br>
+        &lt;a class=&quot;button&quot; href=&quot;#&quot;</br>
+        &nbsp;&nbsp;ng-click=<span class="highlight">&quot;++points&quot;</span>&gt;</br>
+        &nbsp;&nbsp;Add points</br>
+        &lt;/a&gt;
+        </p>
+      </div>
+      <div id="expressions" class="step" data-x="0" data-y="2400">
+        <p class="code">"++points"</span>
+        <p>
+        is an <strong>invalid Angular expression</strong>.
+        </p>
+        <p>
+        Angular expressions <strong>look</strong> like Javascript, and <strong>act</strong> like
+        Javascript, but they <strong>aren't</strong> Javascript. They are their own language,
+        implemented inside Angular by <strong>$parse</strong>.
+        </p>
+        <p class="code">
+        ng-click=<span class="highlight">"foo()"</span></span></br>
+        ng-show=<span class="highlight">"foo != bar"</span></br>
+        Today is {{<span class="highlight">timestamp | date</span>}}
+        </p>
+      </div>
+      <div id="parse" class="step" data-x="0" data-y="3200">
+        <p>Angular's <strong>$parse</strong> service takes strings like:</p>
+        <p class="code">"data"</p>
+        <p>and converts them to executable functions like:</p>
+        <p class="code">
+        function (s, l) {</br>
+        &nbsp;&nbsp;if(s == null) return undefined;</br>
+        &nbsp;&nbsp;s=((l&amp;&amp;l.hasOwnProperty("data"))?l:s).data;</br>
+        &nbsp;&nbsp;return s;</br>
+        }
+        </p>
+      </div>
+      <div id="parse-lexer" class="step" data-x="0" data-y="4000">
+        <h1>How does it work?</h1>
+        <img class="max-width" src="img/read_the_source.jpg"></img>
+        <p>
+        <span class="small">
+          <a href="https://github.com/angular/angular.js/blob/master/src/ng/parse.js">
+            (https://github.com/angular/angular.js/blob/master/src/ng/parse.js)
+          </a>
+        </span>
+        </p>
+      </div>
+      <div id="why" class="step" data-x="0" data-y="4800">
+        <h1>Is it slow?</h1>
+        <p>Yes, but it's OK. Usually only called when compiling/linking templates, not during digest
+        cycles (see ng-model, ng-bind, ng-click, etc.)</p>
+      </div>
+      <div id="performance" class="step" data-x="0" data-y="5600">
+        <iframe frameborder="0" width="100%" height="600px" src="http://embed.plnkr.co/gwtkcQyZgZySlX9P1lEW/preview"></iframe>
+      </div>
+      <div id="solution" class="step" data-x="0" data-y="6400">
+        <p>The solution...</p>
+        <p class="code">
+        &lt;span class="big"&gt;{{ points }}&lt;/span&gt;</br>
+        &lt;span&gt;points&lt;/span&gt;</br>
+        &lt;a class=&quot;button&quot; href=&quot;#&quot;</br>
+        &nbsp;&nbsp;ng-click=<span class="highlight">&quot;points = points + 1&quot;</span>&gt;</br>
+        &nbsp;&nbsp;Add points</br>
+        &lt;/a&gt;
+        </p>
+      </div>
+      <div id="fixed" class="step" data-x="0" data-y="7200">
+        <iframe frameborder="0" width="100%" height="600px" src="http://embed.plnkr.co/7kmJxUFii5yWBd8Nc3nV/preview"></iframe>
+      </div>
+    </div>
+    <div id="footer">
+      <span><img class="logo" src="img/logo_orange.png"></img></span><span>@nsamuell</span><span>pathgather.com</span>
+    </div>
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="js/impress.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/angularjs-nyc-impress.js"></script>
+  </body>
+</head>
+</html>
+
