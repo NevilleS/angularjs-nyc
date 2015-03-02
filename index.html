@@ -75,7 +75,7 @@
         }
         </p>
       </div>
-      <div id="parse-lexer" class="step" data-x="0" data-y="4000">
+      <div id="how" class="step" data-x="0" data-y="4000">
         <h1>How does it work?</h1>
         <img class="max-width" src="img/read_the_source.jpg"></img>
         <p>
@@ -86,7 +86,25 @@
         </span>
         </p>
       </div>
-      <div id="why" class="step" data-x="0" data-y="4800">
+      <div id="how-example" class="step" data-x="1000" data-y="4000">
+        <p>How the $parse Lexer works (from
+          <a href="https://github.com/angular/angular.js/blob/master/src/ng/parse.js">
+            parse.js
+          </a>
+          )
+        </p>
+        <script src="https://gist.github.com/NevilleS/dbaa1a9f21bf2138c959.js"></script>
+      </div>
+      <div id="how-example-2" class="step" data-x="2000" data-y="4000">
+        <p>How operators are defined by $parse (from
+          <a href="https://github.com/angular/angular.js/blob/master/src/ng/parse.js">
+            parse.js
+          </a>
+          )
+        </p>
+        <script src="https://gist.github.com/NevilleS/32225a73452836091041.js"></script>
+      </div>
+      <div id="speed" class="step" data-x="0" data-y="4800">
         <h1>Is it slow?</h1>
         <p>Yes, but it's OK. Usually only called when compiling/linking templates, not during digest
         cycles (see ng-model, ng-bind, ng-click, etc.)</p>
