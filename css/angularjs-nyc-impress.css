@@ -109,10 +109,6 @@ body {
   display: block
 }
 
-#title .title h1 {
-  font-variant: small-caps
-}
-
 #title .title h1,
 #title .title p {
   color: white;
